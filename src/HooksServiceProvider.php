@@ -13,6 +13,10 @@ class HooksServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        $this->app->singleton(HooksService::class, function () {
+            return new HooksService;
+        });
+
         $this->app->singleton('Hooks', function () {
             return new HooksService();
         });
